@@ -1,5 +1,5 @@
 
-import { integer, pgTable,  serial, text, timestamp, varchar } from "drizzle-orm/pg-core";
+import { integer, pgEnum, pgTable,  serial, text, timestamp, varchar } from "drizzle-orm/pg-core";
 
 
 export const chat=pgTable('side_chats',{
@@ -12,6 +12,7 @@ export const chat=pgTable('side_chats',{
 
 
 })
+export const userSystemEnum=pgEnum("user_stystem_enum",['admin.user'])
 
 export const messages = pgTable("message", {
   id: serial("id").primaryKey(),
@@ -20,5 +21,5 @@ export const messages = pgTable("message", {
     .notNull(),
   msgContext: text("content").notNull(),
   createdAt: timestamp("created_at").notNull().defaultNow(),
-  role:userSystemEum 
+  role:userSystemEnum("user").notNull()
 });

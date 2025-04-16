@@ -1,6 +1,6 @@
 import { auth } from "@clerk/nextjs/server";
 import Link from "next/link";
-
+import FileUpload from "./components/FileUpload"
 export default async function Home() {
   const {userId}=await auth();
   const isAuth=!!userId
@@ -8,7 +8,7 @@ export default async function Home() {
     <div className="bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 min-h-screen flex flex-col">
       {/* Top right login button */}
       <div className="flex justify-end p-4">
-        {isAuth && (
+        {!isAuth && (
           <button className="bg-amber-950 text-white px-4 py-2 hover:bg-amber-900 cursor-pointer rounded-md">
             Login
           </button>
@@ -29,7 +29,7 @@ export default async function Home() {
           </p>
 
           {isAuth ? (
-            <h1>FileUpload</h1>
+           <FileUpload/>
           ) : (
             <Link href={"/sign-in"}>
               <button className="bg-green-950 px-6 py-2 hover:bg-amber-950 text-white cursor-pointer rounded">
