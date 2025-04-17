@@ -8,9 +8,13 @@ export default async function Home() {
     <div className="bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 min-h-screen flex flex-col">
       {/* Top right login button */}
       <div className="flex justify-end p-4">
-        {!isAuth && (
+        {isAuth ? (
           <button className="bg-amber-950 text-white px-4 py-2 hover:bg-amber-900 cursor-pointer rounded-md">
-            Login
+            logout
+          </button>
+        ) : (
+          <button className="bg-amber-950 text-white px-4 py-2 hover:bg-amber-900 cursor-pointer rounded-md">
+            logIn
           </button>
         )}
       </div>
@@ -22,14 +26,17 @@ export default async function Home() {
             Welcome To TestResume
           </h1>
           <p className="text-white mb-6 text-center">
-            Upload your resume PDF to instantly get personalized feedback,<br/>
-            improve your formatting, and see how your resume performs against<br/>
-            modern ATS (Applicant Tracking System) standards. Get suggestions,<br/> 
+            Upload your resume PDF to instantly get personalized feedback,
+            <br />
+            improve your formatting, and see how your resume performs against
+            <br />
+            modern ATS (Applicant Tracking System) standards. Get suggestions,
+            <br />
             ratings, and insights to help you stand out.
           </p>
 
           {isAuth ? (
-           <FileUpload/>
+            <FileUpload />
           ) : (
             <Link href={"/sign-in"}>
               <button className="bg-green-950 px-6 py-2 hover:bg-amber-950 text-white cursor-pointer rounded">
