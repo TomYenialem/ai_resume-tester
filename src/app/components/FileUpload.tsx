@@ -96,7 +96,7 @@ const FileUpload = () => {
 
       {isLoading && (
         <p className="mt-2 text-blue-500 font-semibold animate-pulse">
-          ⏳ Uploading and processing...
+          ⏳ Uploading and processing Your File...
         </p>
       )}
     </div>

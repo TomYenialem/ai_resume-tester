@@ -1,8 +1,6 @@
 import { NextResponse } from "next/server";
 
-export const Post=async(req:Request, res:Response)=>{
-
-
+export async function POST(req:Request){
 
     try {
         const body=await req.json();
