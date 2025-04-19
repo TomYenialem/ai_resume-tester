@@ -1,6 +1,7 @@
+// utils/pdfParser.ts
 import pdf from "pdf-parse";
 
-export const extractText = async (file: Buffer): Promise<string> => {
-  const data = await pdf(file);
+export const extractTextFromPDF = async (buffer: Buffer) => {
+  const data = await pdf(buffer);
   return data.text;
 };
