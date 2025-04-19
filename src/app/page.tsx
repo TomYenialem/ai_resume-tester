@@ -1,17 +1,20 @@
 import { auth } from "@clerk/nextjs/server";
 import Link from "next/link";
-import FileUpload from "./components/FileUpload"
+import FileUpload from "./components/FileUpload";
+import Sign_out from "./components/Sign_out";
 export default async function Home() {
-  const {userId}=await auth();
-  const isAuth=!!userId
+  const { userId } = await auth();
+
+  const isAuth = !!userId;
+
+  console.log("isAuth", isAuth);
   return (
     <div className="bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 min-h-screen flex flex-col">
       {/* Top right login button */}
       <div className="flex justify-end p-4">
         {isAuth ? (
-          <button className="bg-amber-950 text-white px-4 py-2 hover:bg-amber-900 cursor-pointer rounded-md">
-            logout
-          </button>
+         
+        <Sign_out />
         ) : (
           <button className="bg-amber-950 text-white px-4 py-2 hover:bg-amber-900 cursor-pointer rounded-md">
             logIn

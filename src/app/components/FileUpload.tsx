@@ -9,7 +9,7 @@ import toast from "react-hot-toast";
 
 const FileUpload = () => {
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
-  const [isLoading, setIsLoading] = useState(false); // 🟡 New loading state
+  const [isLoading, setIsLoading] = useState(false);
 
   const { mutate } = useMutation({
     mutationFn: async ({
