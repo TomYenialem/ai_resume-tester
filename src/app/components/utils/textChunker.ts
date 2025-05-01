@@ -8,7 +8,7 @@ export const chunkText = (text: string, chunkSize = 500): string[] => {
       currentChunk += sentence + " ";
     } else {
       chunks.push(currentChunk.trim());
-      currentChunk = sentence + " ";
+      currentChunk = sentence + " "; 
     }
   }
 

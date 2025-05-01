@@ -1,11 +1,11 @@
-// utils/embedder.ts
 import OpenAI from "openai";
 
-const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY!,
-});
-
 export const getEmbeddings = async (texts: string[]) => {
+  const openai = new OpenAI({
+    apiKey: process.env.OPENAI_API_KEY!,
+  });
+  
+
   const embeddings = await Promise.all(
     texts.map(async (text) => {
       const res = await openai.embeddings.create({
@@ -15,5 +15,6 @@ export const getEmbeddings = async (texts: string[]) => {
       return res.data[0].embedding;
     })
   );
+
   return embeddings;
 };

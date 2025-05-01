@@ -17,5 +17,7 @@ export const storeEmbeddings = async (
   }));
 
   // ✅ Correct usage: pass array + optional namespace directly
-  await index.upsert(vectors);
+ const response = await index.upsert(vectors);
+ return response;
+
 };
